@@ -1,10 +1,41 @@
-var istatus = document.querySelector("h2");
-var addFriend = document.querySelector("#add");
-addFriend.addEventListener("click", function () {
-  istatus.innerHTML = "Friends";
-  istatus.style.color = "Green";
+// Friend toggle
+var istatus = document.querySelector("#card h2");
+var btn = document.querySelector("#add");
+
+var check = 0;
+btn.addEventListener("click", function () {
+  if (check === 0) {
+    istatus.innerHTML = "Friends";
+    istatus.style.color = "green";
+    btn.innerHTML = "Remove Friend";
+    check = 1;
+  } else {
+    istatus.innerHTML = "Stranger";
+    istatus.style.color = "red";
+    btn.innerHTML = "Add Friend";
+    check = 0;
+  }
 });
-remove.addEventListener("click", function () {
-  istatus.innerHTML = "Stranger";
-  istatus.style.color = "red";
+
+// Double-click heart animation
+var card = document.querySelector("#card");
+var heart = document.querySelector("#card i");
+
+card.addEventListener("dblclick", function () {
+  // Show heart
+  heart.style.transform = "translate(-50%, -50%) scale(2)";
+  heart.style.opacity = "1";
+
+  // Hide after 500ms
+  setTimeout(() => {
+    heart.style.transform = "translate(-50%, -50%) scale(0.7)";
+    heart.style.opacity = "0";
+  }, 500);
+});
+
+// Custom cursor movement
+var cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove", function (e) {
+  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
 });

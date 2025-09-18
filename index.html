@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Photo Inside Card</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    />
     <style>
       * {
         margin: 0;
@@ -21,7 +25,10 @@
         align-items: center;
         justify-content: center;
         background-color: cornflowerblue;
+        overflow: hidden;
       }
+
+      /* Card */
       #card {
         border-radius: 10px;
         height: 350px;
@@ -30,7 +37,10 @@
         padding: 15px;
         text-align: center;
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
       }
+
       #card img {
         width: 100%;
         height: auto;
@@ -40,15 +50,18 @@
         margin-bottom: 10px;
         display: block;
       }
+
       #card h1 {
         font-size: 20px;
         margin: 5px 0;
       }
+
       #card h2 {
         font-size: 16px;
         color: red;
         margin-bottom: 15px;
       }
+
       #card button {
         padding: 10px 25px;
         border: none;
@@ -60,21 +73,54 @@
         cursor: pointer;
         transition: 0.3s;
       }
+
       #card button:hover {
         background: darkgreen;
+      }
+
+      /* Heart icon */
+      #card i {
+        color: red;
+        font-size: 70px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.7);
+        opacity: 0;
+        transition: all ease 0.3s;
+        pointer-events: none;
+      }
+
+      /* Custom cursor */
+      .cursor {
+        height: 20px;
+        width: 20px;
+        background: rgb(229, 11, 11);
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: transform 0.05s linear;
+        z-index: 9999;
       }
     </style>
   </head>
   <body>
     <div id="card">
       <img src="1.jpg" alt="Profile Photo" />
+      <i class="ri-heart-3-fill"></i>
       <h1>Nirmala Mangrati</h1>
       <h2>Stranger</h2>
       <div id="btn-container">
         <button id="add">Add Friend</button>
-        <button id="remove">Remove</button>
       </div>
     </div>
+
+    <!-- Custom cursor -->
+    <div class="cursor"></div>
+
     <script src="index.js"></script>
   </body>
 </html>
