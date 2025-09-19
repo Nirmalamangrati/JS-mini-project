@@ -39,3 +39,24 @@ var cursor = document.querySelector(".cursor");
 document.addEventListener("mousemove", function (e) {
   cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
 });
+
+// select all elem rows
+document.querySelectorAll(".elem").forEach((elem) => {
+  let img = elem.querySelector("img");
+
+  // move image with mouse
+  elem.addEventListener("mousemove", (event) => {
+    img.style.left = event.offsetX + "px";
+    img.style.top = event.offsetY + "px";
+  });
+
+  // show image on hover
+  elem.addEventListener("mouseenter", () => {
+    img.style.opacity = 1;
+  });
+
+  // hide image when leaving
+  elem.addEventListener("mouseleave", () => {
+    img.style.opacity = 0;
+  });
+});
