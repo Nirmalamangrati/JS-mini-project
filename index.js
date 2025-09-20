@@ -60,3 +60,21 @@ document.querySelectorAll(".elem").forEach((elem) => {
     img.style.opacity = 0;
   });
 });
+
+const storyElements = document.querySelectorAll(".story img");
+const viewer = document.getElementById("viewer");
+const viewerImg = document.getElementById("viewerImg");
+const closeBtn = document.getElementById("closeBtn");
+
+// Click on story → open viewer with that photo
+storyElements.forEach((story) => {
+  story.addEventListener("click", () => {
+    viewerImg.src = story.src;
+    viewer.style.display = "flex";
+  });
+});
+
+// Close viewer
+closeBtn.addEventListener("click", () => {
+  viewer.style.display = "none";
+});

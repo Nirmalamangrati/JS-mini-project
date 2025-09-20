@@ -31,7 +31,7 @@
       /* Card */
       #card {
         border-radius: 10px;
-        height: 420px;
+        height: 500px;
         width: 300px;
         background-color: #fff;
         padding: 15px;
@@ -107,6 +107,7 @@
       }
          #bottom-container {
         width: 300px;
+        height: 500px;
         padding: 10px;
         color: #fff;
         background: black;
@@ -146,10 +147,73 @@
       .elem:hover img {
         opacity: 1;
       }
+        .stories {
+      display: flex;
+      gap: 15px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      width: fit-content;
+      margin: 30px auto;
+    }
+    .story {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 3px solid red;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .story img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Viewer (hidden by default) */
+    #viewer {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      display: none;
+    }
+    #viewer img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 15px;
+    }
+    #closeBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: red;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+    }
     </style>
   </head>
   <body>
+    
     <div id="card">
+      <div class="stories">
+    <div class="story"><img src="https://i.pravatar.cc/150?img=1"></div>
+    <div class="story"><img src="https://i.pravatar.cc/150?img=2"></div>
+    <div class="story"><img src="https://i.pravatar.cc/150?img=3"></div>
+    <div class="story"><img src="https://i.pravatar.cc/150?img=4"></div>
+  </div>
+
+  <!-- Story Viewer -->
+  <div id="viewer">
+    <img id="viewerImg" src="">
+    <button id="closeBtn">Close</button>
+  </div>
       <img src="1.jpg" alt="Profile Photo" />
       <i class="ri-heart-3-fill"></i>
       <h1>Nirmala Mangrati</h1>
